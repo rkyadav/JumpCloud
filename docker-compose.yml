@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+    api: 
+        image: "payload:latest"
+        ports:
+            - "5000":"5000"
+        deploy:
+            replicas: 2
+            update_config:
+                parallelism: 1
+                failure_action: rollback
+                monitor: 1m
+                delay: 1m
